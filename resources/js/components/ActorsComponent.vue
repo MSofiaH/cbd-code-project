@@ -80,7 +80,6 @@
                     <table class="table">
                     <tbody v-for="actor in laravelData" :key="actor.id">
                       <tr>
-                      {{laravelData}}
                         <th scope="row">{{ actor.actor_name }}</th>
                         <td><a href="#" v-on:click="editPost(actor.id)" data-target="#exampleModal2"  data-toggle="modal" v-bind:actor_name="actor.actor_name">Add Movie</a></td>
                       </tr>
