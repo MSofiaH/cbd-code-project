@@ -1836,8 +1836,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then(function (response) {
-        console.log(response.data);
-        _this2.laravelData = response.data;
+        console.log(response.data.data);
+        _this2.laravelData = response.data.data;
         _this2.pagenumber = page;
       });
     },

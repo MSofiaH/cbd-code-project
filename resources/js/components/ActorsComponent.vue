@@ -135,8 +135,8 @@
             },
             postLists() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then((response) => {
-                    console.log(response.data);
-                    this.laravelData = response.data;
+                    console.log(response.data.data);
+                    this.laravelData = response.data.data;
                     this.pagenumber = page;
                 });
             },
