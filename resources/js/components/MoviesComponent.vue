@@ -23,7 +23,7 @@
                                 <form method = "post" name="addpost" id="addpost" action="#" @submit.prevent="addMovie">
                                     <div class="form-group">
                                         <label for="title">Movie Name</label>
-                                        <input type="text" name="title" id="title" class="form-control" placeholder="Title" v-model="movie.movie_name" />
+                                        <input type="text" name="title" id="title" class="form-control" placeholder="Movie Name" v-model="movie.movie_name" />
                                     </div>
                                     <div class="form-group">
                                     <label for="author">Production Company</label>

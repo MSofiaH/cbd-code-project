@@ -56,8 +56,9 @@ class ActorsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $actorMovie = new ActorsMovies();
-        $actorMovie->fill($request);
+        $actorMovie->fill($request->input());
         $actorMovie->save();
 
         $actor = Actors::with('actorMovies.movie')->find($id);

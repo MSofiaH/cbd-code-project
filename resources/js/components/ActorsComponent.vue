@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label for="movie">Movie</label>
                                 <select class="form-control" name="movie" id="movie" v-model="actor.movie_id">
-                                    <option v-for="movie in movies" value="movie.id">{{movie.movie_name}}</option>
+                                    <option v-for="movie in movies" :value="movie.id">{{movie.movie_name}}</option>
                                 </select>
                             </div>
                             <div class="form-group">

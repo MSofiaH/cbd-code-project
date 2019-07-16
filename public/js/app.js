@@ -38598,7 +38598,7 @@ var render = function() {
                               _vm._l(_vm.movies, function(movie) {
                                 return _c(
                                   "option",
-                                  { attrs: { value: "movie.id" } },
+                                  { domProps: { value: movie.id } },
                                   [_vm._v(_vm._s(movie.movie_name))]
                                 )
                               }),
@@ -39046,7 +39046,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title",
-                              placeholder: "Title"
+                              placeholder: "Movie Name"
                             },
                             domProps: { value: _vm.movie.movie_name },
                             on: {
