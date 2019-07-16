@@ -1811,6 +1811,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'actors-component',
   data: function data() {
     return {
       movies: {},
@@ -1831,14 +1832,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.movies = response.data;
       });
     },
-    postLists: function postLists(page) {
+    postLists: function postLists() {
       var _this2 = this;
 
-      if (typeof page === 'undefined') {
-        page = 1;
-      }
-
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=' + page).then(function (response) {
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then(function (response) {
+        console.log(response.data);
         _this2.laravelData = response.data;
         _this2.pagenumber = page;
       });
@@ -1846,7 +1844,7 @@ __webpack_require__.r(__webpack_exports__);
     addActor: function addActor() {
       var _this3 = this;
 
-      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors/', {
+      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors', {
         'actor_name': this.actor.actor_name
       }).then(function (data) {
         _this3.succmsg = false;
@@ -2052,9 +2050,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=' + page).then(function (response) {
         _this2.laravelData = response.data;
-        forEach(_this2.laravelData, function (key, movie) {
-          this.showScriptComponent[movie.id] = false;
-        });
         _this2.pagenumber = page;
       });
     },
@@ -38493,7 +38488,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title",
-                              placeholder: "Title"
+                              placeholder: "Actor Full Name"
                             },
                             domProps: { value: _vm.actor.actor_name },
                             on: {
@@ -38760,7 +38755,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Add Movie")]
+              [_vm._v("Add Actor")]
             )
           ]),
           _vm._v(" "),
@@ -52415,8 +52410,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/marthahidalgo/Documents/cbs/cbs-code-project/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/marthahidalgo/Documents/cbs/cbs-code-project/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/marthahidalgo/Desktop/cbd-code-project/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/marthahidalgo/Desktop/cbd-code-project/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

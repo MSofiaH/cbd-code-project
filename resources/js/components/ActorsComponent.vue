@@ -23,7 +23,7 @@
                             <form method = "post" name="addactor" id="addactor" action="#" @submit.prevent="addActor">
                                 <div class="form-group">
                                     <label for="title">Actor Name</label>
-                                    <input type="text" name="title" id="title" class="form-control" placeholder="Title" v-model="actor.actor_name" />
+                                    <input type="text" name="title" id="title" class="form-control" placeholder="Actor Full Name" v-model="actor.actor_name" />
                                 </div>
                                 <div class="form-group text-right">
                                     <button class="btn btn-success">Submit</button>
@@ -133,17 +133,15 @@
                     this.movies = response.data;
                 });
             },
-            postLists(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page='+ page).then((response) => {
+            postLists() {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then((response) => {
+                    console.log(response.data);
                     this.laravelData = response.data;
                     this.pagenumber = page;
                 });
             },
             addActor(){
-                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors/',
+                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors',
                     {
                         'actor_name': this.actor.actor_name
                     }).
