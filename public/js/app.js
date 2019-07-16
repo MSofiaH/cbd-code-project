@@ -38556,63 +38556,55 @@ var render = function() {
                       },
                       [
                         _c("div", [
-                          _c(
-                            "div",
-                            { staticClass: "form-group" },
-                            [
-                              _c("label", { attrs: { for: "movie" } }, [
-                                _vm._v("Movie")
-                              ]),
-                              _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "movie" } }, [
+                              _vm._v("Movie")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.actor.movie_id,
+                                    expression: "actor.movie_id"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { name: "movie", id: "movie" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.actor,
+                                      "movie_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
                               _vm._l(_vm.movies, function(movie) {
                                 return _c(
-                                  "select",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.actor.movie_id,
-                                        expression: "actor.movie_id"
-                                      }
-                                    ],
-                                    staticClass: "form-control",
-                                    attrs: { name: "movie", id: "movie" },
-                                    on: {
-                                      change: function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.$set(
-                                          _vm.actor,
-                                          "movie_id",
-                                          $event.target.multiple
-                                            ? $$selectedVal
-                                            : $$selectedVal[0]
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "option",
-                                      { attrs: { value: "movie.id" } },
-                                      [_vm._v(_vm._s(movie.movie_name))]
-                                    )
-                                  ]
+                                  "option",
+                                  { attrs: { value: "movie.id" } },
+                                  [_vm._v(_vm._s(movie.movie_name))]
                                 )
-                              })
-                            ],
-                            2
-                          ),
+                              }),
+                              0
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "character" } }, [
