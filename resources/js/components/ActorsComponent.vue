@@ -47,22 +47,22 @@
                     <form method="post" name="addpost" id="addpost" action="#" @submit.prevent="updatePost">
                         <div>
                             <div class="form-group">
-                                <label for="author">Movie</label>
-                                <select class="form-control" name="author" id="author" v-model="actor.movie_id" v-for="movie in movies">
+                                <label for="movie">Movie</label>
+                                <select class="form-control" name="movie" id="movie" v-model="actor.movie_id" v-for="movie in movies">
                                     <option value="movie.id">{{movie.movie_name}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="character">Character Name</label>
-                                <input type="text" name="email" id="character" class="form-control" placeholder="email" v-model="actor.movie_character_name"/>
+                                <input type="text" name="character" id="character" class="form-control" placeholder="Movie Character Name" v-model="actor.movie_character_name"/>
                             </div>
                             <div class="form-group">
-                                <label for="post_content">Actor Revenue Share</label>
-                                <textarea name="post_content" id="post_content" class="form-control" placeholder="Post Body" v-model="actor.actor_revenue_share"></textarea>
+                                <label for="revenue_share">Actor Revenue Share</label>
+                                <textarea name="revenue_share" id="revenue_share" class="form-control" placeholder="Revenue Share" v-model="actor.actor_revenue_share"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="email">Actor Base Pay</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="email" v-model="actor.actor_base_pay"/>
+                                <label for="base_pay">Actor Base Pay</label>
+                                <input type="text" name="base_pay" id="base_pay" class="form-control" placeholder="Base Pay" v-model="actor.actor_base_pay"/>
                             </div>
                         </div>
                         <div class="form-group text-right">
@@ -130,12 +130,12 @@
         methods: {
             movieList(){
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies').then((response) => {
-                    this.movies = response.data;
+                    console.log(response.data.data);
+                    this.movies = response.data.data;
                 });
             },
             postLists() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then((response) => {
-                    console.log(response.data.data);
                     this.laravelData = response.data.data;
                     this.pagenumber = page;
                 });

@@ -1829,14 +1829,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies').then(function (response) {
-        _this.movies = response.data;
+        console.log(response.data.data);
+        _this.movies = response.data.data;
       });
     },
     postLists: function postLists() {
       var _this2 = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then(function (response) {
-        console.log(response.data.data);
         _this2.laravelData = response.data.data;
         _this2.pagenumber = page;
       });
@@ -38560,7 +38560,7 @@ var render = function() {
                             "div",
                             { staticClass: "form-group" },
                             [
-                              _c("label", { attrs: { for: "author" } }, [
+                              _c("label", { attrs: { for: "movie" } }, [
                                 _vm._v("Movie")
                               ]),
                               _vm._v(" "),
@@ -38577,7 +38577,7 @@ var render = function() {
                                       }
                                     ],
                                     staticClass: "form-control",
-                                    attrs: { name: "author", id: "author" },
+                                    attrs: { name: "movie", id: "movie" },
                                     on: {
                                       change: function($event) {
                                         var $$selectedVal = Array.prototype.filter
@@ -38631,9 +38631,9 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                name: "email",
+                                name: "character",
                                 id: "character",
-                                placeholder: "email"
+                                placeholder: "Movie Character Name"
                               },
                               domProps: {
                                 value: _vm.actor.movie_character_name
@@ -38654,7 +38654,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "post_content" } }, [
+                            _c("label", { attrs: { for: "revenue_share" } }, [
                               _vm._v("Actor Revenue Share")
                             ]),
                             _vm._v(" "),
@@ -38669,9 +38669,9 @@ var render = function() {
                               ],
                               staticClass: "form-control",
                               attrs: {
-                                name: "post_content",
-                                id: "post_content",
-                                placeholder: "Post Body"
+                                name: "revenue_share",
+                                id: "revenue_share",
+                                placeholder: "Revenue Share"
                               },
                               domProps: {
                                 value: _vm.actor.actor_revenue_share
@@ -38692,7 +38692,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "email" } }, [
+                            _c("label", { attrs: { for: "base_pay" } }, [
                               _vm._v("Actor Base Pay")
                             ]),
                             _vm._v(" "),
@@ -38708,9 +38708,9 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                name: "email",
-                                id: "email",
-                                placeholder: "email"
+                                name: "base_pay",
+                                id: "base_pay",
+                                placeholder: "Base Pay"
                               },
                               domProps: { value: _vm.actor.actor_base_pay },
                               on: {
