@@ -63,7 +63,7 @@
                                 <th scope="row">{{ movie.production_company_revenue_share }}</th>
                                 <td><a href="#" v-on:click="editScript(movie.id)" class="btn btn-primary">View</a></td>
                             </tr>
-                            <tr v-if="showScriptComponent[movie.id]">
+                            <tr v-show="showScriptComponent[movie.id]">
                                 <span>{{ movie.script }}</span>
                                 <!--<scripts-component :movie-id="movie.id"></scripts-component>-->
                             </tr>
@@ -94,8 +94,8 @@
         methods: {
             editScript(movie_id){
                 console.log(movie_id);
+                this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
                 console.log(this.showScriptComponent[movie_id]);
-              this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
             },
             companiesList(){
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies').then((response) => {

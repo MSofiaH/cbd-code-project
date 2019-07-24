@@ -2030,8 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     editScript: function editScript(movie_id) {
       console.log(movie_id);
-      console.log(this.showScriptComponent[movie_id]);
       this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
+      console.log(this.showScriptComponent[movie_id]);
     },
     companiesList: function companiesList() {
       var _this = this;
@@ -39221,9 +39221,20 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm.showScriptComponent[movie.id]
-                      ? _c("tr", [_c("span", [_vm._v(_vm._s(movie.script))])])
-                      : _vm._e()
+                    _c(
+                      "tr",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.showScriptComponent[movie.id],
+                            expression: "showScriptComponent[movie.id]"
+                          }
+                        ]
+                      },
+                      [_c("span", [_vm._v(_vm._s(movie.script))])]
+                    )
                   ])
                 })
               ],
