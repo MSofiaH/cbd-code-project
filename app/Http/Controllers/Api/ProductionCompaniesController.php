@@ -17,7 +17,7 @@ class ProductionCompaniesController extends Controller
      */
     public function index()
     {
-        return new ProductionCompaniesCollection(ProductionCompanies::paginate(10));
+        return new ProductionCompaniesCollection(ProductionCompanies::all());
     }
 
     /**
@@ -31,9 +31,9 @@ class ProductionCompaniesController extends Controller
         $productionCompany = new ProductionCompanies();
         $productionCompany->company_name = $request->company_name;
         $productionCompany->save();
-      
-     
-      
+
+
+
         return new ProductionCompaniesResource($productionCompany);
     }
 
@@ -60,7 +60,7 @@ class ProductionCompaniesController extends Controller
         $productionCompany = ProductionCompanies::find($id);
         $productionCompany->company_name = $request->company_name;
         $productionCompany->save();
-      
+
         return new ProductionCompaniesResource($productionCompany);
     }
 

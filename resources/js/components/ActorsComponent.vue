@@ -123,21 +123,18 @@
                 id: '',
                 succmsg:  true,
                 showmodal: false,
-                pagenumber: 1,
                 actionmsg: '',
             }
         },
         methods: {
             movieList(){
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies').then((response) => {
-                    console.log(response.data.data);
                     this.movies = response.data.data;
                 });
             },
             postLists() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then((response) => {
                     this.laravelData = response.data.data;
-                    this.pagenumber = page;
                 });
             },
             addActor(){
@@ -154,7 +151,7 @@
                         self.succmsg = true;
                     },3000);
                     this.actionmsg = "Data added successfully";
-                    $('#exampleModal').modal('hide');
+                    $('#exampleModal1').modal('hide');
                     this.postLists(this.pagenumber);
                 });
             },
@@ -180,11 +177,11 @@
                             self.succmsg = true;
                         },3000);
                         this.actionmsg = "Data updated successfully";
-                        $('#exampleModal').modal('hide');
+                        $('#exampleModal2').modal('hide');
                         this.postLists(this.pagenumber);
                     });
             },
-            hideModal() {
+            hideModal(modal) {
                 $('#exampleModal2').modal('hide');
             }
 

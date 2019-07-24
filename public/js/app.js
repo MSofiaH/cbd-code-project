@@ -1820,7 +1820,6 @@ __webpack_require__.r(__webpack_exports__);
       id: '',
       succmsg: true,
       showmodal: false,
-      pagenumber: 1,
       actionmsg: ''
     };
   },
@@ -1829,7 +1828,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies').then(function (response) {
-        console.log(response.data.data);
         _this.movies = response.data.data;
       });
     },
@@ -1838,7 +1836,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?page=1').then(function (response) {
         _this2.laravelData = response.data.data;
-        _this2.pagenumber = page;
       });
     },
     addActor: function addActor() {
@@ -1855,7 +1852,7 @@ __webpack_require__.r(__webpack_exports__);
           self.succmsg = true;
         }, 3000);
         _this3.actionmsg = "Data added successfully";
-        $('#exampleModal').modal('hide');
+        $('#exampleModal1').modal('hide');
 
         _this3.postLists(_this3.pagenumber);
       });
@@ -1882,12 +1879,12 @@ __webpack_require__.r(__webpack_exports__);
           self.succmsg = true;
         }, 3000);
         _this4.actionmsg = "Data updated successfully";
-        $('#exampleModal').modal('hide');
+        $('#exampleModal2').modal('hide');
 
         _this4.postLists(_this4.pagenumber);
       });
     },
-    hideModal: function hideModal() {
+    hideModal: function hideModal(modal) {
       $('#exampleModal2').modal('hide');
     }
   },
@@ -2016,6 +2013,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2025,7 +2023,6 @@ __webpack_require__.r(__webpack_exports__);
       id: '',
       succmsg: true,
       showmodal: false,
-      pagenumber: 1,
       actionmsg: '',
       showScriptComponent: []
     };
@@ -2038,20 +2035,22 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies').then(function (response) {
-        _this.productionCompanies = response.data;
+        _this.productionCompanies = response.data.data;
       });
     },
-    postLists: function postLists(page) {
+    postLists: function postLists() {
       var _this2 = this;
 
-      if (typeof page === 'undefined') {
-        page = 1;
-      }
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then(function (response) {
+        _this2.laravelData = response.data.data;
 
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=' + page).then(function (response) {
-        _this2.laravelData = response.data;
-        _this2.pagenumber = page;
+        _this2.laravelData.forEach(function (movie) {
+          this.showScriptComponent[movie.id] = false;
+        });
       });
+    },
+    newMovie: function newMovie() {
+      this.companiesList();
     },
     addMovie: function addMovie() {
       var _this3 = this;
@@ -2070,8 +2069,8 @@ __webpack_require__.r(__webpack_exports__);
         _this3.postLists(_this3.pagenumber);
       });
     },
-    hideModal: function hideModal() {
-      $('#exampleModal2').modal('hide');
+    hideModal: function hideModal(modal) {
+      $(modal).modal('hide');
     }
   },
   mounted: function mounted() {
@@ -39175,7 +39174,24 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Movie List")]),
+          _c("button", [
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-target": "#exampleModal",
+                  "data-toggle": "modal"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.newMovie()
+                  }
+                }
+              },
+              [_vm._v("Add Movie")]
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
@@ -39220,6 +39236,8 @@ var render = function() {
                       ? _c(
                           "tr",
                           [
+                            _c("span", [_vm._v(_vm._s(movie.script))]),
+                            _vm._v(" "),
                             _c("scripts-component", {
                               attrs: { "movie-id": movie.id }
                             })

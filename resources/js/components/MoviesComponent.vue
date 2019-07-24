@@ -20,7 +20,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method = "post" name="addpost" id="addpost" action="#" @submit.prevent="addMovie">
+                                <form method="post" name="addpost" id="addpost" action="#" @submit.prevent="addMovie">
                                     <div class="form-group">
                                         <label for="title">Movie Name</label>
                                         <input type="text" name="title" id="title" class="form-control" placeholder="Movie Name" v-model="movie.movie_name" />
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">Movie List</div>
+                    <button><a href="#" v-on:click="newMovie()" data-target="#exampleModal"  data-toggle="modal">Add Movie</a></button>
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
@@ -64,6 +64,7 @@
                                 <td><a href="#" v-on:click="editScript(movie.id)" class="btn btn-primary">View</a></td>
                             </tr>
                             <tr v-if="showScriptComponent[movie.id]">
+                                <span>{{ movie.script }}</span>
                                 <scripts-component :movie-id="movie.id"></scripts-component>
                             </tr>
                             </tbody>
@@ -86,7 +87,6 @@
                 id: '',
                 succmsg:  true,
                 showmodal: false,
-                pagenumber: 1,
                 actionmsg: '',
                 showScriptComponent: []
             }
@@ -97,17 +97,19 @@
             },
             companiesList(){
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies').then((response) => {
-                    this.productionCompanies = response.data;
+                    this.productionCompanies = response.data.data;
                 });
             },
-            postLists(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page='+ page).then((response) => {
-                    this.laravelData = response.data;
-                    this.pagenumber = page;
+            postLists() {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then((response) => {
+                    this.laravelData = response.data.data;
+                    this.laravelData.forEach(function (movie) {
+                        this.showScriptComponent[movie.id] = false;
+                    })
                 });
+            },
+            newMovie(){
+              this.companiesList();
             },
             addMovie(){
                 this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies/', this.movie ).
@@ -124,8 +126,8 @@
                     this.postLists(this.pagenumber);
                 });
             },
-            hideModal() {
-                $('#exampleModal2').modal('hide');
+            hideModal(modal) {
+                $(modal).modal('hide');
             }
 
         },

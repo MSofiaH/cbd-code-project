@@ -17,7 +17,7 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return new MoviesCollection(Movies::with('productionCompany')->paginate(10));
+        return new MoviesCollection(Movies::with('productionCompany')->with('script')->get());
     }
 
     /**
@@ -33,7 +33,7 @@ class MoviesController extends Controller
         $movie->production_companies_id = $request->production_companies_id;
         $movie->production_company_revenue_share = $request->production_company_revenue_share;
         $movie->save();
-      
+
         return new MoviesResource($movie);
     }
 
@@ -62,7 +62,7 @@ class MoviesController extends Controller
         $movie->production_companies_id = $request->production_companies_id;
         $movie->production_company_revenue_share = $request->production_company_revenue_share;
         $movie->save();
-      
+
         return new MoviesResource($movie);
     }
 
