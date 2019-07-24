@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">Production Companies List</div>
+                    <button><a href="#" v-on:click="addCompany()" data-target="#exampleModal"  data-toggle="modal">Add Production Company</a></button>
                     <div class="card-body">
                         <table class="table table-striped">
                             <tbody v-for="company in laravelData">
@@ -66,13 +66,9 @@
             }
         },
         methods: {
-            postLists(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies?page='+ page).then((response) => {
-                    this.laravelData = response.data;
-                    this.pagenumber = page;
+            postLists() {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies?page=1').then((response) => {
+                    this.laravelData = response.data.data;
                 });
             },
             addCompany(){

@@ -2155,16 +2155,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    postLists: function postLists(page) {
+    postLists: function postLists() {
       var _this = this;
 
-      if (typeof page === 'undefined') {
-        page = 1;
-      }
-
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies?page=' + page).then(function (response) {
-        _this.laravelData = response.data;
-        _this.pagenumber = page;
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies?page=1').then(function (response) {
+        _this.laravelData = response.data.data;
       });
     },
     addCompany: function addCompany() {
@@ -39418,8 +39413,23 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Production Companies List")
+          _c("button", [
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-target": "#exampleModal",
+                  "data-toggle": "modal"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.addCompany()
+                  }
+                }
+              },
+              [_vm._v("Add Production Company")]
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
