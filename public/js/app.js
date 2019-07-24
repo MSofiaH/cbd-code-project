@@ -39233,7 +39233,13 @@ var render = function() {
                           }
                         ]
                       },
-                      [_c("span", [_vm._v(_vm._s(movie.script))])]
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(movie.script) +
+                            "\n                            "
+                        )
+                      ]
                     )
                   ])
                 })

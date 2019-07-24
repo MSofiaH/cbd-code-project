@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a39b00-eb2e-47e0-b793-327d7e4e3f4b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/MoviesComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/MoviesComponent.vue" afterDir="false" />
     </list>
@@ -43,8 +44,8 @@
       <file leaf-file-name="MoviesComponent.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/MoviesComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="65" column="71" lean-forward="true" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+            <state relative-caret-position="261">
+              <caret line="66" column="50" lean-forward="true" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
               <folding>
                 <element signature="e#1041#1048#1" expanded="true" />
               </folding>
@@ -400,12 +401,12 @@
       <workItem from="1562810394860" duration="1280000" />
       <workItem from="1562811735061" duration="8304000" />
       <workItem from="1563244445276" duration="2054000" />
-      <workItem from="1563932802750" duration="3846000" />
+      <workItem from="1563932802750" duration="4102000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16594000" />
+    <option name="totallyTimeSpent" value="16850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/MoviesComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="65" column="71" lean-forward="true" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+        <state relative-caret-position="261">
+          <caret line="66" column="50" lean-forward="true" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
           <folding>
             <element signature="e#1041#1048#1" expanded="true" />
           </folding>
