@@ -39228,8 +39228,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.showScriptComponent[movie.id],
-                            expression: "showScriptComponent[movie.id]"
+                            value: _vm.showScriptComponent[movie.id] === true,
+                            expression: "showScriptComponent[movie.id] === true"
                           }
                         ]
                       },

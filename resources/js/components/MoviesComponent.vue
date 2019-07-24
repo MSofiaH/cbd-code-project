@@ -63,7 +63,7 @@
                                 <th scope="row">{{ movie.production_company_revenue_share }}</th>
                                 <td><a href="#" v-on:click="editScript(movie.id)" class="btn btn-primary">View</a></td>
                             </tr>
-                            <tr v-show="showScriptComponent[movie.id]">
+                            <tr v-show="showScriptComponent[movie.id] === true">
                                 <span>{{ movie.script }}</span>
                                 <!--<scripts-component :movie-id="movie.id"></scripts-component>-->
                             </tr>
