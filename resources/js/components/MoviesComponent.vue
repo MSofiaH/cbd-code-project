@@ -20,7 +20,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="post" name="addpost" id="addpost" action="#" @submit.prevent="addMovie">
+                                <form method = "post" name="addmovie" id="addmovie" action="#" @submit.prevent="addMovie">
                                     <div class="form-group">
                                         <label for="movie_name">Movie Name</label>
                                         <input type="text" name="movie_name" id="movie_name" class="form-control" v-model="movie.movie_name" />
@@ -65,7 +65,7 @@
                             </tr>
                             <tr v-if="showScriptComponent[movie.id]">
                                 <span>{{ movie.script }}</span>
-                                <scripts-component :movie-id="movie.id"></scripts-component>
+                                <!--<scripts-component :movie-id="movie.id"></scripts-component>-->
                             </tr>
                             </tbody>
                         </table>

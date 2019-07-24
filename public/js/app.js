@@ -39010,8 +39010,8 @@ var render = function() {
                       {
                         attrs: {
                           method: "post",
-                          name: "addpost",
-                          id: "addpost",
+                          name: "addmovie",
+                          id: "addmovie",
                           action: "#"
                         },
                         on: {
@@ -39218,17 +39218,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm.showScriptComponent[movie.id]
-                      ? _c(
-                          "tr",
-                          [
-                            _c("span", [_vm._v(_vm._s(movie.script))]),
-                            _vm._v(" "),
-                            _c("scripts-component", {
-                              attrs: { "movie-id": movie.id }
-                            })
-                          ],
-                          1
-                        )
+                      ? _c("tr", [_c("span", [_vm._v(_vm._s(movie.script))])])
                       : _vm._e()
                   ])
                 })
