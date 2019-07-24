@@ -2029,6 +2029,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editScript: function editScript(movie_id) {
+      console.log(movie_id);
+      console.log(this.showScriptComponent[movie_id]);
       this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
     },
     companiesList: function companiesList() {
@@ -2048,6 +2050,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.laravelData.forEach(function (movie) {
           self.showScriptComponent[movie.id] = false;
         });
+
+        console.log(_this2.showScriptComponent);
       });
     },
     newMovie: function newMovie() {
@@ -2056,7 +2060,7 @@ __webpack_require__.r(__webpack_exports__);
     addMovie: function addMovie() {
       var _this3 = this;
 
-      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies/', this.movie).then(function (data) {
+      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies', this.movie).then(function (data) {
         _this3.succmsg = false;
         console.log(data);
         _this3.movie = {};
@@ -2067,7 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.actionmsg = "Data added successfully";
         $('#exampleModal').modal('hide');
 
-        _this3.postLists(_this3.pagenumber);
+        _this3.postLists();
       });
     },
     hideModal: function hideModal(modal) {
@@ -2165,7 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
     addCompany: function addCompany() {
       var _this2 = this;
 
-      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies/', this.company).then(function (data) {
+      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies', this.company).then(function (data) {
         _this2.succmsg = false;
         console.log(data);
         _this2.company = {};
@@ -2176,11 +2180,11 @@ __webpack_require__.r(__webpack_exports__);
         _this2.actionmsg = "Data added successfully";
         $('#exampleModal').modal('hide');
 
-        _this2.postLists(_this2.pagenumber);
+        _this2.postLists();
       });
     },
     hideModal: function hideModal() {
-      $('#exampleModal2').modal('hide');
+      $('#exampleModal').modal('hide');
     }
   },
   mounted: function mounted() {
@@ -39425,7 +39429,7 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _c(
               "table",
-              { staticClass: "table table-striped" },
+              { staticClass: "table" },
               _vm._l(_vm.laravelData, function(company) {
                 return _c("tbody", [
                   _c("tr", [

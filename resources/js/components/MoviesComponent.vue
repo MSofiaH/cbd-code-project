@@ -93,6 +93,8 @@
         },
         methods: {
             editScript(movie_id){
+                console.log(movie_id);
+                console.log(this.showScriptComponent[movie_id]);
               this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
             },
             companiesList(){
@@ -107,13 +109,14 @@
                     this.laravelData.forEach(function (movie) {
                         self.showScriptComponent[movie.id] = false;
                     });
+                    console.log(this.showScriptComponent)
                 });
             },
             newMovie(){
               this.companiesList();
             },
             addMovie(){
-                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies/', this.movie ).
+                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies', this.movie ).
                 then((data) => {
                     this.succmsg = false;
                     console.log(data);
@@ -124,7 +127,7 @@
                     },3000);
                     this.actionmsg = "Data added successfully";
                     $('#exampleModal').modal('hide');
-                    this.postLists(this.pagenumber);
+                    this.postLists();
                 });
             },
             hideModal(modal) {

@@ -37,7 +37,7 @@
                 <div class="card">
                     <button><a href="#" v-on:click="addCompany()" data-target="#exampleModal"  data-toggle="modal">Add Production Company</a></button>
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table class="table">
                             <tbody v-for="company in laravelData">
                             <tr>
                                 <th scope="row">{{ company.company_name }}</th>
@@ -72,7 +72,7 @@
                 });
             },
             addCompany(){
-                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies/', this.company ).
+                this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies', this.company ).
                 then((data) => {
                     this.succmsg = false;
                     console.log(data);
@@ -83,11 +83,11 @@
                     },3000);
                     this.actionmsg = "Data added successfully";
                     $('#exampleModal').modal('hide');
-                    this.postLists(this.pagenumber);
+                    this.postLists();
                 });
             },
             hideModal() {
-                $('#exampleModal2').modal('hide');
+                $('#exampleModal').modal('hide');
             }
 
         },
