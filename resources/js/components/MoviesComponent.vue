@@ -22,18 +22,18 @@
                             <div class="modal-body">
                                 <form method="post" name="addpost" id="addpost" action="#" @submit.prevent="addMovie">
                                     <div class="form-group">
-                                        <label for="title">Movie Name</label>
-                                        <input type="text" name="title" id="title" class="form-control" placeholder="Movie Name" v-model="movie.movie_name" />
+                                        <label for="movie_name">Movie Name</label>
+                                        <input type="text" name="movie_name" id="movie_name" class="form-control" v-model="movie.movie_name" />
                                     </div>
                                     <div class="form-group">
-                                    <label for="author">Production Company</label>
-                                    <select class="form-control" name="author" id="author" v-model="movie.production_companies_id" v-for="company in productionCompanies">
-                                        <option value="company.id">{{company.company_name}}</option>
+                                    <label for="company">Production Company</label>
+                                    <select class="form-control" name="company" id="company" v-model="movie.production_companies_id">
+                                        <option v-for="company in productionCompanies" :value="company.id">{{company.company_name}}</option>
                                     </select>
                                 </div>
                                     <div class="form-group">
                                         <label for="revenue">Production Company Revenue Share</label>
-                                        <input type="text" name="title" id="revenue" class="form-control" placeholder="Title" v-model="movie.production_company_revenue_share" />
+                                        <input type="text" name="revenue" id="revenue" class="form-control" v-model="movie.production_company_revenue_share" />
                                     </div>
                                     <div class="form-group text-right">
                                         <button class="btn btn-success">Submit</button>
@@ -103,9 +103,10 @@
             postLists() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then((response) => {
                     this.laravelData = response.data.data;
+                    var self = this;
                     this.laravelData.forEach(function (movie) {
-                        this.showScriptComponent[movie.id] = false;
-                    })
+                        self.showScriptComponent[movie.id] = false;
+                    });
                 });
             },
             newMovie(){

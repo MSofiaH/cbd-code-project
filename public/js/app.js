@@ -2043,9 +2043,10 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then(function (response) {
         _this2.laravelData = response.data.data;
+        var self = _this2;
 
         _this2.laravelData.forEach(function (movie) {
-          this.showScriptComponent[movie.id] = false;
+          self.showScriptComponent[movie.id] = false;
         });
       });
     },
@@ -39027,7 +39028,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "title" } }, [
+                          _c("label", { attrs: { for: "movie_name" } }, [
                             _vm._v("Movie Name")
                           ]),
                           _vm._v(" "),
@@ -39043,9 +39044,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              name: "title",
-                              id: "title",
-                              placeholder: "Movie Name"
+                              name: "movie_name",
+                              id: "movie_name"
                             },
                             domProps: { value: _vm.movie.movie_name },
                             on: {
@@ -39063,64 +39063,55 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "author" } }, [
-                              _vm._v("Production Company")
-                            ]),
-                            _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "company" } }, [
+                            _vm._v("Production Company")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.movie.production_companies_id,
+                                  expression: "movie.production_companies_id"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { name: "company", id: "company" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.movie,
+                                    "production_companies_id",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
                             _vm._l(_vm.productionCompanies, function(company) {
                               return _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.movie.production_companies_id,
-                                      expression:
-                                        "movie.production_companies_id"
-                                    }
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: { name: "author", id: "author" },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.$set(
-                                        _vm.movie,
-                                        "production_companies_id",
-                                        $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      )
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "company.id" } },
-                                    [_vm._v(_vm._s(company.company_name))]
-                                  )
-                                ]
+                                "option",
+                                { domProps: { value: company.id } },
+                                [_vm._v(_vm._s(company.company_name))]
                               )
-                            })
-                          ],
-                          2
-                        ),
+                            }),
+                            0
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "revenue" } }, [
@@ -39141,9 +39132,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              name: "title",
-                              id: "revenue",
-                              placeholder: "Title"
+                              name: "revenue",
+                              id: "revenue"
                             },
                             domProps: {
                               value: _vm.movie.production_company_revenue_share
