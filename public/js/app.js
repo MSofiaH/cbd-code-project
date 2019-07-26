@@ -2243,7 +2243,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -2272,7 +2271,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + this.movieId).then(function (response) {
         _this2.laravelData = response.data.data[0];
         _this2.lines = _this2.laravelData.lines;
-        console.log(_this2.laravelData);
       });
     },
     addLine: function addLine() {
@@ -39641,12 +39639,15 @@ var render = function() {
           { staticClass: "card-body" },
           _vm._l(_vm.lines, function(line) {
             return _c("div", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(line) +
-                  "\n                    "
-              ),
-              _c("span", [_vm._v(_vm._s(line.movie_actor.actor.actor_name))]),
+              _c("span", [
+                _c("b", [
+                  _vm._v(
+                    _vm._s(line.movie_actor.actor.actor_name) +
+                      " / " +
+                      _vm._s(line.movie_actor.movie_character_name)
+                  )
+                ])
+              ]),
               _vm._v(" "),
               _c("span", [_vm._v(_vm._s(line.line))])
             ])

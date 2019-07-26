@@ -46,8 +46,7 @@
                 <div>{{laravelData}}</div>
                 <div class="card-body">
                     <div v-for="line in lines">
-                        {{line}}
-                        <span>{{line.movie_actor.actor.actor_name}}</span>
+                        <span><b>{{line.movie_actor.actor.actor_name}} / {{line.movie_actor.movie_character_name}}</b></span>
                         <span>{{line.line}}</span>
                     </div>
                 </div>
@@ -83,7 +82,6 @@
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+this.movieId).then((response) => {
                     this.laravelData = response.data.data[0];
                     this.lines = this.laravelData.lines;
-                    console.log(this.laravelData);
                 });
             },
             addLine(){
