@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+              <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="536">
-              <caret line="55" column="108" lean-forward="true" selection-start-line="55" selection-start-column="108" selection-end-line="55" selection-end-column="108" />
+              <caret line="55" column="108" selection-start-line="55" selection-start-column="108" selection-end-line="55" selection-end-column="108" />
               <folding>
                 <element signature="e#44#71#0#PHP" expanded="true" />
               </folding>
@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ActorsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="46" column="80" lean-forward="true" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+              <caret line="46" column="80" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -445,12 +445,12 @@
       <workItem from="1563244445276" duration="2054000" />
       <workItem from="1563932802750" duration="4253000" />
       <workItem from="1564105226834" duration="6659000" />
-      <workItem from="1564173774561" duration="508000" />
+      <workItem from="1564173774561" duration="614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24168000" />
+    <option name="totallyTimeSpent" value="24274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -861,7 +861,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ActorsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="46" column="80" lean-forward="true" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+          <caret line="46" column="80" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
           <folding>
             <element signature="e#44#72#0#PHP" expanded="true" />
           </folding>
@@ -871,7 +871,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
-          <caret line="55" column="108" lean-forward="true" selection-start-line="55" selection-start-column="108" selection-end-line="55" selection-end-column="108" />
+          <caret line="55" column="108" selection-start-line="55" selection-start-column="108" selection-end-line="55" selection-end-column="108" />
           <folding>
             <element signature="e#44#71#0#PHP" expanded="true" />
           </folding>
@@ -881,7 +881,7 @@
     <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+          <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
         </state>
       </provider>
     </entry>
