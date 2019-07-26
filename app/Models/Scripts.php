@@ -39,7 +39,7 @@ class Scripts extends Model
         $countPerActor = [];
         foreach ($actorsInMovie as $actorInMovie){
             $countPerActor[$actorInMovie->id] = 0;
-            $actorNamesDictionary[$actorsInMovie->id] = Actors::find($actorsInMovie->actor_id)->actor_name;
+            $actorNamesDictionary[$actorInMovie->id] = Actors::find($actorInMovie->actor_id)->actor_name;
         }
         foreach ($lines as $line){
             $countPerActor[$line->actor_id] = $countPerActor[$line->actor_id] + str_word_count($line->line);
