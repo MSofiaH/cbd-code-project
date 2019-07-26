@@ -44,16 +44,20 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    Script Lines: {{laravelData.script_lines}}
-                </div>
-                <div class="card-body">
-                    Spoken words per Actor:
-                    <div v-for="(actor, count) in laravelData.spoken_words_per_actor">
-                        <b>{{actor}}:</b>{{count}}
-                    </div>
-                </div>
-                <div>
-                    Character Mentions: {{laravelData.character_mentions}}
+                    <ul>
+                        <li>
+                            Script Lines: {{laravelData.script_lines}}
+                        </li>
+                        <li>
+                            Spoken words per Actor:
+                            <div v-for="(count,actor) in laravelData.spoken_words_per_actor">
+                                <b>{{actor}}:</b>{{count}}
+                            </div>
+                        </li>
+                        <li>
+                            Character Mentions: {{laravelData.character_mentions}}
+                        </li>
+                    </ul>
                 </div>
                 <div class="card-body">
                     <div v-for="line in lines">

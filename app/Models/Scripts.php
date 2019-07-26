@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Extensions\Lookup;
 use Illuminate\Database\Eloquent\Model;
 
 class Scripts extends Model
@@ -53,37 +54,12 @@ class Scripts extends Model
 
     public function getCharacterMentionsAttribute()
     {
-        $lines = ScriptLines::with('movieActor')->where('script_id',$this->id)->get();
+        $charactersInMovie = ActorsMovies::where('movie_id', $this->movie_id)->get();
+        $lines = ScriptLines::where('script_id',$this->id)->get();
 
-        $characterMentions = [];
-        $characters = [];
-        $characterDictionary = [];
+        $lookup = new Lookup();
 
-        foreach ($lines as $line){
-//            if(!isset($characterMentions[$line->movie_actor->movie_character_name])){
-//              $characterMentions[$line->movie_actor->movie_character_name] = 0;
-//            }
-//            if(!in_array($line->movie_actor->movie_character_name, $characters)){
-//                $characters[] = $line->movie_actor->movie_character_name;
-//            }
-        }
-
-        foreach ($characters as $character){
-            $characterDictionary[$character] = explode(' ',$character);
-        }
-
-        foreach ($lines as $line){
-//            foreach ($characters as $character){
-//                if($line->movie_actor->movie_character_name == $character){
-//                    continue;
-//                }
-//                $possibleNames = $characterDictionary[$character];
-//                foreach ($possibleNames as $possibleName){
-//                    $characterMentions[$character] = $characterMentions[$character] + substr_count($line->line, $possibleName);
-//                }
-//            }
-        }
-        return $characterMentions;
+        return [];
     }
 
 }
