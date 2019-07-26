@@ -2254,7 +2254,8 @@ __webpack_require__.r(__webpack_exports__);
       id: '',
       succmsg: true,
       showmodal: false,
-      actionmsg: ''
+      actionmsg: '',
+      lines: {}
     };
   },
   methods: {
@@ -2270,6 +2271,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + this.movieId).then(function (response) {
         _this2.laravelData = response.data.data;
+        _this2.lines = _this2.laravelData.lines;
       });
     },
     addLine: function addLine() {
@@ -39636,7 +39638,7 @@ var render = function() {
         _c(
           "div",
           { staticClass: "card-body" },
-          _vm._l(_vm.laravelData.lines, function(line) {
+          _vm._l(_vm.lines, function(line) {
             return _c("div", [
               _vm._v(
                 "\n                    " +

@@ -45,7 +45,7 @@
             <div class="card">
                 <div>{{laravelData}}</div>
                 <div class="card-body">
-                    <div v-for="line in laravelData.lines">
+                    <div v-for="line in lines">
                         {{line}}
                         <span>{{line.movie_actor.actor.actor_name}}</span>
                         <span>{{line.line}}</span>
@@ -70,6 +70,7 @@
                 succmsg:  true,
                 showmodal: false,
                 actionmsg: '',
+                lines: {},
             }
         },
         methods: {
@@ -81,6 +82,7 @@
             script() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+this.movieId).then((response) => {
                     this.laravelData = response.data.data;
+                    this.lines = this.laravelData.lines;
                 });
             },
             addLine(){
