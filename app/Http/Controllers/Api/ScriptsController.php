@@ -18,7 +18,7 @@ class ScriptsController extends Controller
      */
     public function index()
     {
-        return new ScriptsResource(Scripts::with('lines.movieActor.actor')->get());
+        return new ScriptsCollection(Scripts::with('lines.movieActor.actor')->get());
     }
 
     /**
@@ -53,7 +53,7 @@ class ScriptsController extends Controller
      */
     public function show($id)
     {
-        return new ScriptsResource(Scripts::with('lines.movieActor.actor')->where('movie_id',$id)->get());
+        return new ScriptsResource(Scripts::with('lines.movieActor.actor')->where('movie_id',$id)->first());
     }
 
     /**
