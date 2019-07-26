@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header" layout="row">
                     <div class="header">{{$movie_name}} - Movie Script</div>
-
                 </div>
                 <div class="card-body">
                     <scripts-component movie-id="{{$movie_id}}"></scripts-component>

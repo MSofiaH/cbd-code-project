@@ -61,12 +61,12 @@
                                 <th scope="row">{{ movie.movie_name }}</th>
                                 <th scope="row">{{ movie.production_company.company_name }}</th>
                                 <th scope="row">{{ movie.production_company_revenue_share }}</th>
-                                <td><a href="#" v-on:click="editScript(movie.id)" class="btn btn-primary">View</a></td>
+                                <td v-if="movie.script"><a :href="'/movies/' + movie.id +'/script'" class="btn btn-primary">View</a></td>
+                                <!--<td v-if="!movie.script"><a href="#" v-on:click="addScript(movie.id)" class="btn btn-primary">Add</a></td>-->
                             </tr>
-                            <tr v-show="showScriptComponent[movie.id] === true">
-                                {{ movie.script }}
-                                <!--<scripts-component :movie-id="movie.id"></scripts-component>-->
-                            </tr>
+                            <!--<tr v-if="showScriptComponent[movie.id] === true">-->
+                                <!--{{ movie.script }}-->
+                            <!--</tr>-->
                             </tbody>
                         </table>
                     </div>

@@ -1,26 +1,15 @@
 <template>
     <div id="postsrec">
-
         <div class="row justify-content-center">
             <div v-bind:class="{ succmsg: succmsg }">
                 <div class="col-md-12 col-lg-12">
                     <div class="alert alert-success cusmsg">{{ actionmsg }}</div>
                 </div>
             </div>
-                <div class="card">
-                    <div>{{laravelData}}</div>
-                    <div class="card-body">
-                        <div v-for="line in laravelData.lines">
-                            <span>{{line.movie_actor.actor.actor_name}}</span>
-                            <span>{{line.line}}</span>
-                        </div>
-                    </div>
-                    <button><a href="#" v-on:click="addLine()" data-target="#exampleModal1"  data-toggle="modal">New Line</a></button>
-                </div>
             <div class="col-md-12">
                 <!-- Button trigger modal -->
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" v-bind:class="{ showmodal:showmodal }">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" v-bind:class="{ showmodal:showmodal }">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -30,16 +19,16 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method = "post" name="addactor" id="addactor" action="#" @submit.prevent="addActor">
+                                <form method = "post" name="addline" id="addline" action="#" @submit.prevent="addLine">
                                     <div class="form-group">
-                                        <label for="author">Actor</label>
-                                        <select class="form-control" name="author" id="author" v-model="line.actor_id" v-for="actor in actors">
-                                            <option value="actor.id">{{actor.actor_name}}</option>
+                                        <label for="actor">Actor</label>
+                                        <select class="form-control" name="actor" id="actor" v-model="line.actor_id">
+                                            <option :value="actor.id" v-for="actor in actors">{{actor.actor_name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="title">Line</label>
-                                        <textarea type="text" name="title" id="title" class="form-control" placeholder="Title" v-model="line.line" />
+                                        <label for="line">Line</label>
+                                        <textarea name="line" id="line" class="form-control" placeholder="Character Line" v-model="line.line"></textarea>
                                     </div>
                                     <div class="form-group text-right">
                                         <button class="btn btn-success">Submit</button>
@@ -50,6 +39,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div>{{laravelData}}</div>
+                <div class="card-body">
+                    <div v-for="line in laravelData.lines">
+                        <span>{{line.movie_actor.actor.actor_name}}</span>
+                        <span>{{line.line}}</span>
+                    </div>
+                </div>
+                <button><a href="#" v-on:click="addLine()" data-target="#exampleModal1"  data-toggle="modal">New Line</a></button>
             </div>
         </div>
     </div>
@@ -72,14 +71,17 @@
         },
         methods: {
             actorsList(){
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors').then((response) => {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?movie='+this.movieId).then((response) => {
                     this.actors = response.data;
                 });
             },
-            scriptLines(movie_id) {
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+movie_id).then((response) => {
+            script() {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+this.movieId).then((response) => {
                     this.laravelData = response.data;
                 });
+            },
+            newLine(){
+                this.actorsList();
             },
             addLine(){
                 this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts/', {
@@ -97,16 +99,15 @@
                     },3000);
                     this.actionmsg = "Data added successfully";
                     $('#exampleModal').modal('hide');
-                    this.scriptLines();
+                    this.script();
                 });
             },
             hideModal() {
-                $('#exampleModal2').modal('hide');
+                $('#exampleModal').modal('hide');
             }
-
         },
         mounted() {
-            this.scriptLines(this.movieId);
+            this.script();
         }
     }
 </script>

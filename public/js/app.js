@@ -2258,7 +2258,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -2276,16 +2275,19 @@ __webpack_require__.r(__webpack_exports__);
     actorsList: function actorsList() {
       var _this = this;
 
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors').then(function (response) {
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?movie=' + this.movieId).then(function (response) {
         _this.actors = response.data;
       });
     },
-    scriptLines: function scriptLines(movie_id) {
+    script: function script() {
       var _this2 = this;
 
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + movie_id).then(function (response) {
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + this.movieId).then(function (response) {
         _this2.laravelData = response.data;
       });
+    },
+    newLine: function newLine() {
+      this.actorsList();
     },
     addLine: function addLine() {
       var _this3 = this;
@@ -2305,15 +2307,15 @@ __webpack_require__.r(__webpack_exports__);
         _this3.actionmsg = "Data added successfully";
         $('#exampleModal').modal('hide');
 
-        _this3.scriptLines();
+        _this3.script();
       });
     },
     hideModal: function hideModal() {
-      $('#exampleModal2').modal('hide');
+      $('#exampleModal').modal('hide');
     }
   },
   mounted: function mounted() {
-    this.scriptLines(this.movieId);
+    this.script();
   }
 });
 
@@ -39204,43 +39206,21 @@ var render = function() {
                         _vm._v(_vm._s(movie.production_company_revenue_share))
                       ]),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.editScript(movie.id)
-                              }
-                            }
-                          },
-                          [_vm._v("View")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.showScriptComponent[movie.id] === true,
-                            expression: "showScriptComponent[movie.id] === true"
-                          }
-                        ]
-                      },
-                      [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(movie.script) +
-                            "\n                            "
-                        )
-                      ]
-                    )
+                      movie.script
+                        ? _c("td", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  href: "/movies/" + movie.id + "/script"
+                                }
+                              },
+                              [_vm._v("View")]
+                            )
+                          ])
+                        : _vm._e()
+                    ])
                   ])
                 })
               ],
@@ -39530,6 +39510,139 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            class: { showmodal: _vm.showmodal },
+            attrs: {
+              id: "exampleModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "form",
+                      {
+                        attrs: {
+                          method: "post",
+                          name: "addline",
+                          id: "addline",
+                          action: "#"
+                        },
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.addLine($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "actor" } }, [
+                            _vm._v("Actor")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.line.actor_id,
+                                  expression: "line.actor_id"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { name: "actor", id: "actor" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.line,
+                                    "actor_id",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            _vm._l(_vm.actors, function(actor) {
+                              return _c(
+                                "option",
+                                { domProps: { value: actor.id } },
+                                [_vm._v(_vm._s(actor.actor_name))]
+                              )
+                            }),
+                            0
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "line" } }, [
+                            _vm._v("Line")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.line.line,
+                                expression: "line.line"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "line",
+                              id: "line",
+                              placeholder: "Character Line"
+                            },
+                            domProps: { value: _vm.line.line },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.line, "line", $event.target.value)
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1)
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", [_vm._v(_vm._s(_vm.laravelData))]),
         _vm._v(" "),
@@ -39564,148 +39677,6 @@ var render = function() {
             [_vm._v("New Line")]
           )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12" }, [
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            class: { showmodal: _vm.showmodal },
-            attrs: {
-              id: "exampleModal1",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c(
-                      "form",
-                      {
-                        attrs: {
-                          method: "post",
-                          name: "addactor",
-                          id: "addactor",
-                          action: "#"
-                        },
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.addActor($event)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "author" } }, [
-                              _vm._v("Actor")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.actors, function(actor) {
-                              return _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.line.actor_id,
-                                      expression: "line.actor_id"
-                                    }
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: { name: "author", id: "author" },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.$set(
-                                        _vm.line,
-                                        "actor_id",
-                                        $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      )
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "actor.id" } },
-                                    [_vm._v(_vm._s(actor.actor_name))]
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("Line")
-                          ]),
-                          _vm._v(" "),
-                          _c("textarea", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.line.line,
-                                expression: "line.line"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "title",
-                              id: "title",
-                              placeholder: "Title"
-                            },
-                            domProps: { value: _vm.line.line },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(_vm.line, "line", $event.target.value)
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(1)
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]
-        )
       ])
     ])
   ])

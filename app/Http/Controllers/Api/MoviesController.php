@@ -17,7 +17,7 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return new MoviesCollection(Movies::with('productionCompany')->with('script')->get());
+        return new MoviesCollection(Movies::with('productionCompany')->get());
     }
 
     /**

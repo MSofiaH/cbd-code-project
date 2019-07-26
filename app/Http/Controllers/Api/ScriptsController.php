@@ -18,7 +18,7 @@ class ScriptsController extends Controller
      */
     public function index()
     {
-        return new ScriptsCollection(Scripts::with('lines.movieActor.actor')->paginate(10));
+        return new ScriptsCollection(Scripts::with('lines.movieActor.actor')->get());
     }
 
     /**
