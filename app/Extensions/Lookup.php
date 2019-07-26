@@ -8,6 +8,7 @@
 
 namespace App\Extensions;
 
+use Illuminate\Support\Facades\Log;
 
 class Lookup
 {
@@ -66,8 +67,11 @@ class Lookup
 
     public function find()
     {
-        for ($i = 0; $i < $this->explodedLine; $i++)
+        Log::info($this->explodedLine);
+        for ($i = 0; $i < count($this->explodedLine); $i++)
         {
+            // iterate through
+            Log::info($i);
             // search for first letter match
             if (in_array($this->explodedLine[$i], $this->possibleNamesFirstLetters))
             {
