@@ -46,6 +46,7 @@
                 <div>{{laravelData}}</div>
                 <div class="card-body">
                     <div v-for="line in laravelData.lines">
+                        {{line}}
                         <span>{{line.movie_actor.actor.actor_name}}</span>
                         <span>{{line.line}}</span>
                     </div>

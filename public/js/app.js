@@ -2243,6 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -39637,6 +39638,11 @@ var render = function() {
           { staticClass: "card-body" },
           _vm._l(_vm.laravelData.lines, function(line) {
             return _c("div", [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(line) +
+                  "\n                    "
+              ),
               _c("span", [_vm._v(_vm._s(line.movie_actor.actor.actor_name))]),
               _vm._v(" "),
               _c("span", [_vm._v(_vm._s(line.line))])
