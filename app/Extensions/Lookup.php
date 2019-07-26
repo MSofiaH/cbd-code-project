@@ -53,7 +53,7 @@ class Lookup
         $this->line = $line;
         $this->properName = $properName;
 
-        $this->explodedLine = explode(null, $this->line);
+        $this->explodedLine = str_split($this->line);
         $this->possibleNames = [$this->properName] + explode(' ', $this->properName);
 
         foreach ($this->possibleNames as $possibleName)
