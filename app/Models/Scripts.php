@@ -35,12 +35,12 @@ class Scripts extends Model
     {
         $lines = ScriptLines::with('movieActor.actor')->where('script_id',$this->id)->get();
         $countPerActor = [];
-        foreach ($lines as $line){
-            if(!isset($countPerActor[$line->movie_actor->actor->actor_name])){
-              $countPerActor[$line->movie_actor->actor->actor_name] = 0;
-            }
-            $countPerActor[$line->movie_actor->actor->actor_name] = $countPerActor[$line->movie_actor->actor->actor_name] + str_word_count($line->line);
-        }
+//        foreach ($lines as $line){
+//            if(!isset($countPerActor[$line->movie_actor->actor->actor_name])){
+//              $countPerActor[$line->movie_actor->actor->actor_name] = 0;
+//            }
+//            $countPerActor[$line->movie_actor->actor->actor_name] = $countPerActor[$line->movie_actor->actor->actor_name] + str_word_count($line->line);
+//        }
         return $countPerActor;
     }
 
