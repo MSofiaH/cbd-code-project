@@ -67,8 +67,8 @@
       <file leaf-file-name="Scripts.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Scripts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+            <state relative-caret-position="245">
+              <caret line="60" column="15" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="60" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -423,12 +423,12 @@
       <workItem from="1562811735061" duration="8304000" />
       <workItem from="1563244445276" duration="2054000" />
       <workItem from="1563932802750" duration="4253000" />
-      <workItem from="1564105226834" duration="6028000" />
+      <workItem from="1564105226834" duration="6087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23029000" />
+    <option name="totallyTimeSpent" value="23088000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Scripts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+        <state relative-caret-position="245">
+          <caret line="60" column="15" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="60" selection-end-column="15" />
         </state>
       </provider>
     </entry>

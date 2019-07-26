@@ -53,12 +53,12 @@ class Scripts extends Model
         $characterDictionary = [];
 
         foreach ($lines as $line){
-            if(!isset($characterMentions[$line->movie_actor->movie_character_name])){
-              $characterMentions[$line->movie_actor->movie_character_name] = 0;
-            }
-            if(!in_array($line->movie_actor->movie_character_name, $characters)){
-                $characters[] = $line->movie_actor->movie_character_name;
-            }
+//            if(!isset($characterMentions[$line->movie_actor->movie_character_name])){
+//              $characterMentions[$line->movie_actor->movie_character_name] = 0;
+//            }
+//            if(!in_array($line->movie_actor->movie_character_name, $characters)){
+//                $characters[] = $line->movie_actor->movie_character_name;
+//            }
         }
 
         foreach ($characters as $character){
