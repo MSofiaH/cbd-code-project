@@ -51,7 +51,7 @@
                         <li>
                             Spoken words per Actor:
                             <div v-for="(count,actor) in laravelData.spoken_words_per_actor">
-                                <b>{{actor}}:</b>{{count}}
+                                <b>{{actor}}: </b>{{count}}
                             </div>
                         </li>
                         <li>

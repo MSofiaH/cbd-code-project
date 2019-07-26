@@ -55,11 +55,17 @@ class Scripts extends Model
     public function getCharacterMentionsAttribute()
     {
         $charactersInMovie = ActorsMovies::where('movie_id', $this->movie_id)->get();
-        $lines = ScriptLines::where('script_id',$this->id)->get();
-
-        $lookup = new Lookup();
-
-        return [];
+        $countPerCharacter = [];
+        foreach ($charactersInMovie as $characterInMovie){
+            $countPerCharacter[$characterInMovie->movie_character_name] = 0;
+            $linesByOtherCharacters = ScriptLines::where('script_id',$this->id)->where('actor_id','!=',$characterInMovie->id)->get();
+            foreach ($linesByOtherCharacters as $line){
+                $lookup = new Lookup($line, $charactersInMovie->movie_character_name);
+                $lookup->find();
+                $countPerCharacter[$characterInMovie->movie_character_name] = $countPerCharacter[$characterInMovie->movie_character_name] + $lookup->matches;
+            }
+        }
+        return $countPerCharacter;
     }
 
 }

@@ -39668,7 +39668,7 @@ var render = function() {
                   actor
                 ) {
                   return _c("div", [
-                    _c("b", [_vm._v(_vm._s(actor) + ":")]),
+                    _c("b", [_vm._v(_vm._s(actor) + ": ")]),
                     _vm._v(_vm._s(count) + "\n                        ")
                   ])
                 })
