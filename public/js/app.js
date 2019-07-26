@@ -2010,10 +2010,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2023,16 +2019,10 @@ __webpack_require__.r(__webpack_exports__);
       id: '',
       succmsg: true,
       showmodal: false,
-      actionmsg: '',
-      showScriptComponent: []
+      actionmsg: ''
     };
   },
   methods: {
-    editScript: function editScript(movie_id) {
-      console.log(movie_id);
-      this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
-      console.log(this.showScriptComponent[movie_id]);
-    },
     companiesList: function companiesList() {
       var _this = this;
 
@@ -2045,13 +2035,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then(function (response) {
         _this2.laravelData = response.data.data;
-        var self = _this2;
-
-        _this2.laravelData.forEach(function (movie) {
-          self.showScriptComponent[movie.id] = false;
-        });
-
-        console.log(_this2.showScriptComponent);
       });
     },
     newMovie: function newMovie() {
@@ -2276,14 +2259,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?movie=' + this.movieId).then(function (response) {
-        _this.actors = response.data;
+        _this.actors = response.data.data;
       });
     },
     script: function script() {
       var _this2 = this;
 
       this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + this.movieId).then(function (response) {
-        _this2.laravelData = response.data;
+        _this2.laravelData = response.data.data;
       });
     },
     newLine: function newLine() {
@@ -2292,7 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
     addLine: function addLine() {
       var _this3 = this;
 
-      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts/', {
+      this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts', {
         movie_id: this.movieId,
         line: this.line.line,
         actor_id: this.line.actor_id
@@ -39655,24 +39638,7 @@ var render = function() {
           0
         ),
         _vm._v(" "),
-        _c("button", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: "#",
-                "data-target": "#exampleModal1",
-                "data-toggle": "modal"
-              },
-              on: {
-                click: function($event) {
-                  return _vm.addLine()
-                }
-              }
-            },
-            [_vm._v("New Line")]
-          )
-        ])
+        _vm._m(2)
       ])
     ])
   ])
@@ -39709,6 +39675,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group text-right" }, [
       _c("button", { staticClass: "btn btn-success" }, [_vm._v("Submit")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", [
+      _c(
+        "a",
+        {
+          attrs: {
+            href: "#",
+            "data-target": "#exampleModal",
+            "data-toggle": "modal"
+          }
+        },
+        [_vm._v("New Line")]
+      )
     ])
   }
 ]

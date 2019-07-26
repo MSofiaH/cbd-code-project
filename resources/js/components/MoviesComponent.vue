@@ -62,11 +62,7 @@
                                 <th scope="row">{{ movie.production_company.company_name }}</th>
                                 <th scope="row">{{ movie.production_company_revenue_share }}</th>
                                 <td scope="row"><a :href="'/movies/' + movie.id +'/script'" class="btn btn-primary">View</a></td>
-                                <!--<td v-if="!movie.script"><a href="#" v-on:click="addScript(movie.id)" class="btn btn-primary">Add</a></td>-->
                             </tr>
-                            <!--<tr v-if="showScriptComponent[movie.id] === true">-->
-                                <!--{{ movie.script }}-->
-                            <!--</tr>-->
                             </tbody>
                         </table>
                     </div>
@@ -87,16 +83,10 @@
                 id: '',
                 succmsg:  true,
                 showmodal: false,
-                actionmsg: '',
-                showScriptComponent: []
+                actionmsg: ''
             }
         },
         methods: {
-            editScript(movie_id){
-                console.log(movie_id);
-                this.showScriptComponent[movie_id] = !this.showScriptComponent[movie_id];
-                console.log(this.showScriptComponent[movie_id]);
-            },
             companiesList(){
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/production_companies').then((response) => {
                     this.productionCompanies = response.data.data;
@@ -105,11 +95,6 @@
             postLists() {
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/movies?page=1').then((response) => {
                     this.laravelData = response.data.data;
-                    var self = this;
-                    this.laravelData.forEach(function (movie) {
-                        self.showScriptComponent[movie.id] = false;
-                    });
-                    console.log(this.showScriptComponent)
                 });
             },
             newMovie(){
