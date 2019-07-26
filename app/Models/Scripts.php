@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use ScriptLines;
 
 class Scripts extends Model
 {
@@ -13,25 +12,25 @@ class Scripts extends Model
      * @var string
      */
     protected $table = 'scripts';
-  
+
   /**
      * @var array
      */
     public $appends = ['script_lines', 'spoken_words_per_actor', 'character_mentions'];
-  
+
     public function movie(){
         return $this->hasOne('App\Models\Movies', 'id', 'movie_id');
     }
-  
+
     public function lines(){
         return $this->hasMany('App\Models\ScriptLines', 'script_id', 'id');
     }
-  
+
     public function getScriptLinesAttribute()
     {
         return ScriptLines::where('script_id',$this->id)->count();
     }
-  
+
     public function getSpokenWordsPerActorAttribute()
     {
         $lines = ScriptLines::where('script_id',$this->id)->get();
@@ -44,7 +43,7 @@ class Scripts extends Model
         }
         return $countPerActor;
     }
-    
+
     public function getCharacterMentionsAttribute()
     {
         $lines = ScriptLines::with('movieActor')->where('script_id',$this->id)->get();
@@ -61,5 +60,5 @@ class Scripts extends Model
         }
         return $characterMentions;
     }
-  
+
 }
