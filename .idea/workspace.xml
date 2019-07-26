@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a39b00-eb2e-47e0-b793-327d7e4e3f4b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Scripts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Scripts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Extensions/Lookup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Extensions/Lookup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,22 +26,22 @@
       <file leaf-file-name="ScriptsComponent.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+            <state relative-caret-position="369">
+              <caret line="60" column="34" lean-forward="true" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lookup.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Lookup.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Extensions/Lookup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
+            <state relative-caret-position="432">
+              <caret line="88" column="68" lean-forward="true" selection-start-line="88" selection-start-column="68" selection-end-line="88" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scripts.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Scripts.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Scripts.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="497">
@@ -117,9 +117,9 @@
         <option value="$PROJECT_DIR$/app/Models/ScriptLines.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ActorMovieController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Scripts.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" />
         <option value="$PROJECT_DIR$/app/Extensions/Lookup.php" />
-        <option value="$PROJECT_DIR$/app/Models/Scripts.php" />
       </list>
     </option>
   </component>
@@ -380,12 +380,12 @@
       <workItem from="1563244445276" duration="2054000" />
       <workItem from="1563932802750" duration="4253000" />
       <workItem from="1564105226834" duration="6659000" />
-      <workItem from="1564173774561" duration="4588000" />
+      <workItem from="1564173774561" duration="4844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28248000" />
+    <option name="totallyTimeSpent" value="28504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,20 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Extensions/Lookup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Scripts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
@@ -817,6 +803,20 @@
           <folding>
             <element signature="e#30#56#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="60" column="34" lean-forward="true" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Extensions/Lookup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="88" column="68" lean-forward="true" selection-start-line="88" selection-start-column="68" selection-end-line="88" selection-end-column="68" />
         </state>
       </provider>
     </entry>

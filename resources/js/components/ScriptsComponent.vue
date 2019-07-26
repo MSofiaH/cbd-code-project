@@ -55,7 +55,10 @@
                             </div>
                         </li>
                         <li>
-                            Character Mentions: {{laravelData.character_mentions}}
+                            Character Mentions:
+                            <div v-for="(count, character) in laravelData.character_mentions">
+                                <b>{{character}}: </b>{{count}}
+                            </div>
                         </li>
                     </ul>
                 </div>

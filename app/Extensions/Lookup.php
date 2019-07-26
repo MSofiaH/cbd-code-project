@@ -68,13 +68,14 @@ class Lookup
     public function find()
     {
         Log::info($this->explodedLine);
+        // iterate through the each character in the exploded line
         for ($i = 0; $i < count($this->explodedLine); $i++)
         {
-            // iterate through
-            Log::info($i);
             // search for first letter match
             if (in_array($this->explodedLine[$i], $this->possibleNamesFirstLetters))
             {
+                Log::info(in_array($this->explodedLine[$i], $this->possibleNamesFirstLetters));
+                Log::info($this->explodedLine[$i]);
                 // if found, begin looking for names with proper name first
                 foreach ($this->possibleNames as $index => $possibleName)
                 {
