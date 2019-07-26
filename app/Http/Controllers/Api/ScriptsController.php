@@ -30,7 +30,7 @@ class ScriptsController extends Controller
     public function store(Request $request)
     {
         $script = Scripts::where('movie_id',$request->movie_id)->first();
-        if($script->isEmpty()){
+        if($script == null){
             $script = new Scripts();
             $script->movie_id = $request->movie_id;
             $script->save();
