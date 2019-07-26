@@ -72,7 +72,7 @@ class Scripts extends Model
             // iterate through each line
             foreach ($linesByOtherCharacters as $line){
                 // perform lookup
-                $lookup = new Lookup($line, $characterInMovie->movie_character_name);
+                $lookup = new Lookup($line->line, $characterInMovie->movie_character_name);
                 $lookup->find();
                 // add previous character mentions with new matches
                 $countPerCharacter[$characterInMovie->movie_character_name] = $countPerCharacter[$characterInMovie->movie_character_name] + $lookup->matches;
