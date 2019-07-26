@@ -48,7 +48,7 @@
                         <span>{{line.line}}</span>
                     </div>
                 </div>
-                <button><a href="#" data-target="#exampleModal"  data-toggle="modal">New Line</a></button>
+                <button><a href="#" v-on:click="actorsList()" data-target="#exampleModal" data-toggle="modal">New Line</a></button>
             </div>
         </div>
     </div>
@@ -79,9 +79,6 @@
                 this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+this.movieId).then((response) => {
                     this.laravelData = response.data.data;
                 });
-            },
-            newLine(){
-                this.actorsList();
             },
             addLine(){
                 this.$http.post('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts', {

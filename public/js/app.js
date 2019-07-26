@@ -2269,9 +2269,6 @@ __webpack_require__.r(__webpack_exports__);
         _this2.laravelData = response.data.data;
       });
     },
-    newLine: function newLine() {
-      this.actorsList();
-    },
     addLine: function addLine() {
       var _this3 = this;
 
@@ -39638,7 +39635,24 @@ var render = function() {
           0
         ),
         _vm._v(" "),
-        _vm._m(2)
+        _c("button", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "#",
+                "data-target": "#exampleModal",
+                "data-toggle": "modal"
+              },
+              on: {
+                click: function($event) {
+                  return _vm.actorsList()
+                }
+              }
+            },
+            [_vm._v("New Line")]
+          )
+        ])
       ])
     ])
   ])
@@ -39675,24 +39689,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group text-right" }, [
       _c("button", { staticClass: "btn btn-success" }, [_vm._v("Submit")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", [
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "#",
-            "data-target": "#exampleModal",
-            "data-toggle": "modal"
-          }
-        },
-        [_vm._v("New Line")]
-      )
     ])
   }
 ]
