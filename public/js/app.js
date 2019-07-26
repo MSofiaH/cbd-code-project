@@ -39206,20 +39206,16 @@ var render = function() {
                         _vm._v(_vm._s(movie.production_company_revenue_share))
                       ]),
                       _vm._v(" "),
-                      movie.script
-                        ? _c("td", [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-primary",
-                                attrs: {
-                                  href: "/movies/" + movie.id + "/script"
-                                }
-                              },
-                              [_vm._v("View")]
-                            )
-                          ])
-                        : _vm._e()
+                      _c("td", { attrs: { scope: "row" } }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { href: "/movies/" + movie.id + "/script" }
+                          },
+                          [_vm._v("View")]
+                        )
+                      ])
                     ])
                   ])
                 })
