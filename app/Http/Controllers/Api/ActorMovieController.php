@@ -19,10 +19,10 @@ class ActorMovieController extends Controller
     {
         $response = ActorsMovies::query();
         if(isset($request->movie)){
-            $response->where('movie_id',$request->movie)->with('movie');
+            $response->where('movie_id',$request->movie)->with('actor');
         }
         if(isset($request->actor)){
-            $response->where('actor_id', $request->actor)->with('actor');
+            $response->where('actor_id', $request->actor)->with('movie');
         }
         return new ActorMovieCollection($response->get());
     }
