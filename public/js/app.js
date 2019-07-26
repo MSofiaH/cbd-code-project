@@ -2243,6 +2243,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -39632,7 +39640,29 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
-        _c("div", [_vm._v(_vm._s(_vm.laravelData))]),
+        _c("div", [
+          _vm._v(
+            "\n                Script Lines: " +
+              _vm._s(_vm.laravelData.script_lines) +
+              "\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v(
+            "\n                Spoken words per Actor: " +
+              _vm._s(_vm.laravelData.spoken_words_per_actor) +
+              "\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v(
+            "\n                Character Mentions: " +
+              _vm._s(_vm.laravelData.character_mentions) +
+              "\n            "
+          )
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -39642,9 +39672,11 @@ var render = function() {
               _c("span", [
                 _c("b", [
                   _vm._v(
-                    _vm._s(line.movie_actor.actor.actor_name) +
+                    "- " +
+                      _vm._s(line.movie_actor.actor.actor_name) +
                       " / " +
-                      _vm._s(line.movie_actor.movie_character_name)
+                      _vm._s(line.movie_actor.movie_character_name) +
+                      " - "
                   )
                 ])
               ]),

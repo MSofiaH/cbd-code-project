@@ -43,10 +43,18 @@
                 </div>
             </div>
             <div class="card">
-                <div>{{laravelData}}</div>
+                <div>
+                    Script Lines: {{laravelData.script_lines}}
+                </div>
+                <div>
+                    Spoken words per Actor: {{laravelData.spoken_words_per_actor}}
+                </div>
+                <div>
+                    Character Mentions: {{laravelData.character_mentions}}
+                </div>
                 <div class="card-body">
                     <div v-for="line in lines">
-                        <span><b>{{line.movie_actor.actor.actor_name}} / {{line.movie_actor.movie_character_name}}</b></span>
+                        <span><b>- {{line.movie_actor.actor.actor_name}} / {{line.movie_actor.movie_character_name}} - </b></span>
                         <span>{{line.line}}</span>
                     </div>
                 </div>
