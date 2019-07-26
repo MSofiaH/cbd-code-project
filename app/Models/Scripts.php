@@ -33,13 +33,13 @@ class Scripts extends Model
 
     public function getSpokenWordsPerActorAttribute()
     {
-        $lines = ScriptLines::where('script_id',$this->id)->get();
+        $lines = ScriptLines::with('movieActor.actor')->where('script_id',$this->id)->get();
         $countPerActor = [];
         foreach ($lines as $line){
-            if(!isset($countPerActor[$line->actor_id])){
-              $countPerActor[$line->actor_id] = 0;
+            if(!isset($countPerActor[$line->movie_actor->actor->actor_name])){
+              $countPerActor[$line->movie_actor->actor->actor_name] = 0;
             }
-            $countPerActor[$line->actor_id] = str_word_count($line->line);
+            $countPerActor[$line->movie_actor->actor->actor_name] = $countPerActor[$line->movie_actor->actor->actor_name] + str_word_count($line->line);
         }
         return $countPerActor;
     }
@@ -47,16 +47,34 @@ class Scripts extends Model
     public function getCharacterMentionsAttribute()
     {
         $lines = ScriptLines::with('movieActor')->where('script_id',$this->id)->get();
+
         $characterMentions = [];
+        $characters = [];
+        $characterDictionary = [];
+
         foreach ($lines as $line){
             if(!isset($characterMentions[$line->movie_actor->movie_character_name])){
               $characterMentions[$line->movie_actor->movie_character_name] = 0;
             }
+            if(!in_array($line->movie_actor->movie_character_name, $characters)){
+                $characters[] = $line->movie_actor->movie_character_name;
+            }
         }
+
+        foreach ($characters as $character){
+            $characterDictionary[$character] = explode(' ',$character);
+        }
+
         foreach ($lines as $line){
-          foreach ($characterMentions as $character => $count){
-            $characterMentions[$character] = $count + substr_count($line->line,$character);
-          }
+//            foreach ($characters as $character){
+//                if($line->movie_actor->movie_character_name == $character){
+//                    continue;
+//                }
+//                $possibleNames = $characterDictionary[$character];
+//                foreach ($possibleNames as $possibleName){
+//                    $characterMentions[$character] = $characterMentions[$character] + substr_count($line->line, $possibleName);
+//                }
+//            }
         }
         return $characterMentions;
     }

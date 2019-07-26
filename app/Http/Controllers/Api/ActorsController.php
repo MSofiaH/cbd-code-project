@@ -16,15 +16,9 @@ class ActorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $actors = Actors::with('actorMovies.movie');
-        if(isset($request)){
-            $actors->whereHas('actorMovies', function ($query) use ($request){
-                $query->where('movie_id',$request->movie);
-            });
-        }
-        return new ActorsCollection($actors->get());
+        return new ActorsCollection(Actors::with('actorMovies.movie')->get());
     }
 
     /**

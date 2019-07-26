@@ -2241,6 +2241,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -2258,7 +2260,7 @@ __webpack_require__.r(__webpack_exports__);
     actorsList: function actorsList() {
       var _this = this;
 
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?movie=' + this.movieId).then(function (response) {
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actor_movie?movie=' + this.movieId).then(function (response) {
         _this.actors = response.data.data;
       });
     },
@@ -39565,11 +39567,19 @@ var render = function() {
                                 }
                               }
                             },
-                            _vm._l(_vm.actors, function(actor) {
+                            _vm._l(_vm.actors, function(movieActor) {
                               return _c(
                                 "option",
-                                { domProps: { value: actor.id } },
-                                [_vm._v(_vm._s(actor.actor_name))]
+                                { domProps: { value: movieActor.id } },
+                                [
+                                  _vm._v(
+                                    "\n                                            " +
+                                      _vm._s(movieActor.actor.actor_name) +
+                                      " / " +
+                                      _vm._s(movieActor.movie_character_name) +
+                                      "\n                                        "
+                                  )
+                                ]
                               )
                             }),
                             0

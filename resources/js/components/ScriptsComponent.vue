@@ -23,7 +23,9 @@
                                     <div class="form-group">
                                         <label for="actor">Actor</label>
                                         <select class="form-control" name="actor" id="actor" v-model="line.actor_id">
-                                            <option :value="actor.id" v-for="actor in actors">{{actor.actor_name}}</option>
+                                            <option :value="movieActor.id" v-for="movieActor in actors">
+                                                {{movieActor.actor.actor_name}} / {{movieActor.movie_character_name}}
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -71,7 +73,7 @@
         },
         methods: {
             actorsList(){
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actors?movie='+this.movieId).then((response) => {
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/actor_movie?movie='+this.movieId).then((response) => {
                     this.actors = response.data.data;
                 });
             },

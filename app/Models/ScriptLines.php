@@ -12,8 +12,8 @@ class ScriptLines extends Model
      * @var string
      */
     protected $table = 'script_lines';
-    
+
     public function movieActor(){
-        return $this->hasMany('App\Models\ActorsMovies', 'actor_id', 'id');
+        return $this->hasOne('App\Models\ActorsMovies', 'id', 'actor_id');
     }
 }

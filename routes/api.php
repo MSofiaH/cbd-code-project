@@ -20,3 +20,4 @@ Route::apiResource('actors','Api\ActorsController');
 Route::apiResource('movies','Api\MoviesController');
 Route::apiResource('production_companies','Api\ProductionCompaniesController');
 Route::apiResource('scripts','Api\ScriptsController');
+Route::apiResource('actor_movie','Api\ActorMovieController');

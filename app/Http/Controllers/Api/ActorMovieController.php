@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\ActorsMovies;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ActorMovie as ActorMovieResource;
+use App\Http\Resources\ActorMovieCollection;
 
 class ActorMovieController extends Controller
 {
@@ -12,9 +15,16 @@ class ActorMovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $response = ActorsMovies::query();
+        if(isset($request->movie)){
+            $response->where('movie_id',$request->movie)->with('movie');
+        }
+        if(isset($request->actor)){
+            $response->where('actor_id', $request->actor)->with('actor');
+        }
+        return new ActorMovieCollection($response->get());
     }
 
     /**
