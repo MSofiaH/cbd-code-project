@@ -18,7 +18,7 @@ class ScriptsController extends Controller
      */
     public function index()
     {
-        return new ScriptsCollection(Scripts::with('lines.movieActor.actor')->get());
+        return new ScriptsResource(Scripts::with('lines.movieActor.actor')->get());
     }
 
     /**
