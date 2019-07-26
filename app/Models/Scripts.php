@@ -60,7 +60,7 @@ class Scripts extends Model
             $countPerCharacter[$characterInMovie->movie_character_name] = 0;
             $linesByOtherCharacters = ScriptLines::where('script_id',$this->id)->where('actor_id','!=',$characterInMovie->id)->get();
             foreach ($linesByOtherCharacters as $line){
-                $lookup = new Lookup($line, $charactersInMovie->movie_character_name);
+                $lookup = new Lookup($line, $characterInMovie->movie_character_name);
                 $lookup->find();
                 $countPerCharacter[$characterInMovie->movie_character_name] = $countPerCharacter[$characterInMovie->movie_character_name] + $lookup->matches;
             }
