@@ -62,28 +62,32 @@ class Lookup
             $this->possibleNamesFirstLetters[] = $possibleName[0];
             $this->possibleNameLengths[] = strlen($possibleName);
         }
+        Log::info($this->possibleNames);
+        Log::info($this->possibleNameLengths);
+        Log::info($this->possibleNamesFirstLetters);
     }
 
 
     public function find()
     {
-        Log::info($this->explodedLine);
         // iterate through the each character in the exploded line
         for ($i = 0; $i < count($this->explodedLine); $i++)
         {
+            Log::info('current index: '.$i);
             // search for first letter match
             if (in_array($this->explodedLine[$i], $this->possibleNamesFirstLetters))
             {
-                Log::info(in_array($this->explodedLine[$i], $this->possibleNamesFirstLetters));
-                Log::info($this->explodedLine[$i]);
+                Log::info('current character: '.$this->explodedLine[$i]);
                 // if found, begin looking for names with proper name first
                 foreach ($this->possibleNames as $index => $possibleName)
                 {
                     // Get the substring of the possible name from the line at current position
                     $substringOfLine = substr($this->line, $i, $this->possibleNameLengths[$index]);
+                    Log::info('substring found: '.$substringOfLine);
                     // if current substring of line matches the possible name (case sensitive), we have a match
                     if (strcasecmp($substringOfLine, $possibleName))
                     {
+                        Log::info("there's a match with: ".$possibleName);
                         // increment matches
                         $this->matches++;
                         // jump in search index beyond current match
