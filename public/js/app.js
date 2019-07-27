@@ -2258,6 +2258,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['movieId'],
   data: function data() {
@@ -2283,8 +2286,8 @@ __webpack_require__.r(__webpack_exports__);
     script: function script() {
       var _this2 = this;
 
-      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?' + this.movieId).then(function (response) {
-        _this2.laravelData = response.data.data[0];
+      this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts/' + this.movieId).then(function (response) {
+        _this2.laravelData = response.data.data;
         _this2.lines = _this2.laravelData.lines;
       });
     },
@@ -39676,13 +39679,24 @@ var render = function() {
               2
             ),
             _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "\n                        Character Mentions: " +
-                  _vm._s(_vm.laravelData.character_mentions) +
-                  "\n                    "
-              )
-            ])
+            _c(
+              "li",
+              [
+                _vm._v(
+                  "\n                        Character Mentions:\n                        "
+                ),
+                _vm._l(_vm.laravelData.character_mentions, function(
+                  count,
+                  character
+                ) {
+                  return _c("div", [
+                    _c("b", [_vm._v(_vm._s(character) + ": ")]),
+                    _vm._v(_vm._s(count) + "\n                        ")
+                  ])
+                })
+              ],
+              2
+            )
           ])
         ]),
         _vm._v(" "),

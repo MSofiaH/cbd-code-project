@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a39b00-eb2e-47e0-b793-327d7e4e3f4b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScriptsComponent.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScriptsComponent.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="60" column="34" lean-forward="true" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+            <state relative-caret-position="266">
+              <caret line="99" column="105" lean-forward="true" selection-start-line="99" selection-start-column="105" selection-end-line="99" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -40,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScriptsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScriptsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding>
                 <element signature="e#44#71#0#PHP" expanded="true" />
               </folding>
@@ -128,9 +130,9 @@
         <option value="$PROJECT_DIR$/app/Models/ScriptLines.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ActorMovieController.php" />
         <option value="$PROJECT_DIR$/app/Models/Scripts.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" />
         <option value="$PROJECT_DIR$/app/Extensions/Lookup.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue" />
       </list>
     </option>
   </component>
@@ -282,6 +284,24 @@
             <path>
               <item name="cbd-code-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="cbd-code-project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cbd-code-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cbd-code-project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cbd-code-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cbd-code-project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cbd-code-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cbd-code-project" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -412,12 +432,12 @@
       <workItem from="1563244445276" duration="2054000" />
       <workItem from="1563932802750" duration="4253000" />
       <workItem from="1564105226834" duration="6659000" />
-      <workItem from="1564173774561" duration="6392000" />
+      <workItem from="1564173774561" duration="6591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30052000" />
+    <option name="totallyTimeSpent" value="30251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -749,20 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/MoviesComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="48" column="43" lean-forward="true" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ActorsComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="146" column="38" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Movies.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -828,10 +834,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="60" column="34" lean-forward="true" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        <state relative-caret-position="224">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#44#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/MoviesComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-501">
+          <caret line="48" column="43" lean-forward="true" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding>
+            <element signature="e#1041#1048#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -842,13 +861,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ScriptsController.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ActorsComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="e#44#71#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="146" column="38" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScriptsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="99" column="105" lean-forward="true" selection-start-line="99" selection-start-column="105" selection-end-line="99" selection-end-column="105" />
         </state>
       </provider>
     </entry>

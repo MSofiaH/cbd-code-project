@@ -97,8 +97,8 @@
                 });
             },
             script() {
-                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts?'+this.movieId).then((response) => {
-                    this.laravelData = response.data.data[0];
+                this.$http.get('http://php-codeproject-cbs-mshidalgor89968412.codeanyapp.com/api/scripts/'+this.movieId).then((response) => {
+                    this.laravelData = response.data.data;
                     this.lines = this.laravelData.lines;
                 });
             },
