@@ -55,7 +55,8 @@ class Lookup
         $this->properName = $properName;
 
         $this->explodedLine = str_split($this->line);
-        $this->possibleNames = [$this->properName] + explode(' ', $this->properName);
+        $splitNames = explode(' ', $this->properName);
+        $this->possibleNames = array_merge([$this->properName],$splitNames);
 
         foreach ($this->possibleNames as $possibleName)
         {
@@ -65,6 +66,7 @@ class Lookup
         Log::info($this->possibleNames);
         Log::info($this->possibleNameLengths);
         Log::info($this->possibleNamesFirstLetters);
+        Log::info($this->line);
     }
 
 
