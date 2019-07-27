@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Scripts as ScriptsResource;
 use App\Http\Resources\ScriptsCollection;
 use App\Models\Scripts;
+use Illuminate\Support\Facades\Log;
 
 class ScriptsController extends Controller
 {
@@ -53,6 +54,7 @@ class ScriptsController extends Controller
      */
     public function show($id)
     {
+        Log::info($id);
         return new ScriptsResource(Scripts::with('lines.movieActor.actor')->where('movie_id',$id)->first());
     }
 
