@@ -34,8 +34,8 @@
       <file leaf-file-name="Lookup.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Extensions/Lookup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+            <state relative-caret-position="129">
+              <caret line="58" column="88" lean-forward="true" selection-start-line="58" selection-start-column="88" selection-end-line="58" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -379,12 +379,12 @@
       <workItem from="1563244445276" duration="2054000" />
       <workItem from="1563932802750" duration="4253000" />
       <workItem from="1564105226834" duration="6659000" />
-      <workItem from="1564173774561" duration="5757000" />
+      <workItem from="1564173774561" duration="5866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29417000" />
+    <option name="totallyTimeSpent" value="29526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,6 +397,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288948" />
@@ -813,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Extensions/Lookup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+        <state relative-caret-position="129">
+          <caret line="58" column="88" lean-forward="true" selection-start-line="58" selection-start-column="88" selection-end-line="58" selection-end-column="88" />
         </state>
       </provider>
     </entry>

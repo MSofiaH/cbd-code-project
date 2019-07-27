@@ -56,7 +56,7 @@ class Lookup
 
         $this->explodedLine = str_split($this->line);
         $splitNames = explode(' ', $this->properName);
-        $this->possibleNames = array_merge([$this->properName],$splitNames);
+        $this->possibleNames = count($splitNames) > 1 ? array_merge([$this->properName],$splitNames) : $this->properName;
 
         foreach ($this->possibleNames as $possibleName)
         {
