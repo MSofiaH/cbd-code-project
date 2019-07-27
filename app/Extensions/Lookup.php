@@ -87,7 +87,7 @@ class Lookup
                     $substringOfLine = substr($this->line, $i, $this->possibleNameLengths[$index]);
                     Log::info('substring found: '.$substringOfLine);
                     // if current substring of line matches the possible name (case sensitive), we have a match
-                    if (strcmp($substringOfLine, $possibleName))
+                    if (strcmp($substringOfLine, $possibleName) == 0)
                     {
                         Log::info("there's a match with: ".$possibleName);
                         // increment matches
